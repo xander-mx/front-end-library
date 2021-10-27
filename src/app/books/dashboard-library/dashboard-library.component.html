@@ -1,0 +1,20 @@
+<div class="grid-container" >
+  <h1 class="mat-h1">{{ title }}</h1>
+  <mat-grid-list *ngIf="books" cols="6" rowHeight="100px" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
+    <mat-grid-tile *ngFor="let book of books" [colspan]="1" [rowspan]="6">
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{book.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <a [routerLink]="['/books', book.id]"><img mat-card-image src="{{ book.image }}"  alt=""></a>
+        <mat-card-content class="dashboard-card-content">
+          <div>Publicación: {{ book.publication }}</div>
+          <div>Estado: {{ book.status }}</div>
+          <div>{{ book.sipnosis}}</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
